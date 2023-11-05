@@ -1,0 +1,14 @@
+diff --git a/dist/vite/plugin.js b/dist/vite/plugin.js
+index 268c8853fbb12f022bc43f5da3d6d07d9c778ea7..6de56d722afa26fc7e1a04e6b9519acb51b2f669 100644
+--- a/dist/vite/plugin.js
++++ b/dist/vite/plugin.js
+@@ -70,6 +70,9 @@ const normalizePath = p => {
+ const resolveFileUrl = ({
+   rootDirectory
+ }, filePath) => {
++  if (filePath.includes("/node_modules/")) {
++    return `/@fs` + filePath;
++  }
+   let relativePath = path__namespace.relative(rootDirectory, filePath);
+   if (relativePath.startsWith("..") || path__namespace.isAbsolute(relativePath)) {
+     throw new Error(`Cannot resolve asset path "${filePath}" outside of root directory "${rootDirectory}".`);

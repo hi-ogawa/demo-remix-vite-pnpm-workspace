@@ -1,3 +1,8 @@
 {
-  "name": "remix-vite-pnpm-monorepo"
+  "name": "remix-vite-pnpm-monorepo",
+  "pnpm": {
+    "patchedDependencies": {
+      "@remix-run/dev@0.0.0-nightly-3874120-20231103": "patches/@remix-run__dev@0.0.0-nightly-3874120-20231103.patch"
+    }
+  }
 }
